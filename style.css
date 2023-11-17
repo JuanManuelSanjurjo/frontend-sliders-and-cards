@@ -1,0 +1,395 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+    background-color: rgb(14, 22, 49);
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+section{
+    height: 100vh;
+}
+
+.imageSlider{
+    /* margin: auto; */
+    /* width: 50%; */
+    min-height: 700px;
+    position: relative;
+    background-color: rgb(3, 12, 39);
+    background-image: url(./img/entry.jpg);
+    background-repeat: no-repeat;
+    background-position: center ;
+    background-size:contain;
+    /* transition: 0.3s; */
+}
+
+.caption{
+    font-size: 1.5em;
+    background: rgba(3, 13, 34, 0.753);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 50px;
+    color: aliceblue;
+    text-shadow: 0 0 10px black;
+}
+
+.arrowLeft, .arrowRight{
+    background-color: rgba(0, 0, 0, 0.301);
+    position: absolute;
+    margin-inline: 10px;
+    bottom: 50%;
+    transform: translateY(-50%);
+    padding: 10px ;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+}
+.arrowRight{
+    right: 0;
+}
+
+.arrowLeft:hover, .arrowRight:hover{
+    background-color:rgba(0, 0, 0, 0.8);
+}
+
+
+.imageFade{
+    animation: imgFade 0.5s ease-in-out
+}
+
+@keyframes imgFade {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+
+
+.progress-bar {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   height: 5px;
+   background-color: #b3b6bd;
+}
+  
+.progress {
+    height: 5px;
+    background-color: #1940ee;
+    transition: width 1s;
+}
+
+
+
+
+/*  CARD MORPH SLIDER */
+
+.hoverLink{
+    color: beige;
+    font-size: 5rem;
+    line-height: 1;
+    padding: 1rem;
+    text-decoration: none;
+    position: relative;
+}
+.hoverLink:after{
+    transform: scaleY(0.1);
+    transform-origin: top;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgb(223, 28, 28);
+    border-radius: 5px;
+    z-index: -1;
+    transition: 0.2s ;
+    transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955)
+}
+.hoverLink:hover:after{
+    transform: scaleY(1);
+}
+
+.secondLink:hover:after{
+    transform: scaleY(1);
+    transform-origin: bottom;   
+}
+.thirdLink:after{
+    transform: scaleY(0.1);
+}
+.thirdLink:hover:after{
+    transform: scaleY(0.1);
+    transform-origin: bottom;
+}
+
+
+
+
+.cardMorph{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.morphSlider{
+    display: flex;
+}
+
+.card{
+    width: 10vw;
+    border-radius: 15px;
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: 0 0 10px -5px beige ;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.card div{
+    border-radius: 0 0 15px 15px;
+    background-color: rgba(0, 0, 0, 0.527);
+    width: 100%;
+    height: 20% ;
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.3s;
+    transition-delay: 0.3s;
+    overflow-y: hidden;
+    overflow-x: hidden;
+} 
+
+.card div * {
+    color: beige;
+    padding: 2px;
+    border-radius: 5px;
+    padding: 10px;
+ 
+}
+
+.card p{
+    display: none;
+
+}
+input[type="radio"]:checked + label   p{
+    display: block;
+
+}
+input[type="radio"]:checked + label > .card div{
+    height: 40%; 
+    justify-content: unset;
+}
+
+
+label[for="entry"] .card{
+    background-image: url(img/entry.jpg);
+}
+label:nth-of-type(2) .card{
+    background-image: url(img/hg.webp);
+}
+label:nth-of-type(3) .card{
+    background-image: url(img/mg.webp);
+}
+label:nth-of-type(4) .card{
+    background-image: url(img/rg.webp);
+}
+label:nth-of-type(5) .card{
+    background-image: url(img/pg.jpg);
+}
+
+input[type="radio"]:checked + label > .card{
+    width: 40vw;
+}
+
+input {
+    display: none;
+}
+
+
+
+
+/*  MOVING CARD */
+
+.movingCardContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(41, 38, 38);
+}
+
+.movingCard{
+    width: 20vw;
+    height: 70vh;
+   
+}
+.movingCard__content{
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 1s;
+    border-radius: 5px;
+    height: 100%;
+    text-align: center;
+    text-shadow: 1px 0px rgba(99, 99, 99, 0.603);
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.movingCard:hover .movingCard__content{
+    transform: rotateY(180deg)
+}
+
+
+.movingCard__front, .movingCard__back{
+    position: absolute;
+    inset: 0;
+    padding-inline: 10%;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border-radius: 5px;
+
+}
+
+.movingCard__front h3{
+    transform: translateZ(9rem);
+    font-size: 3rem;
+    order: 1;
+}
+.movingCard__front p{
+    transform: translateZ(6rem);
+    order: 2;
+}
+
+.movingCard__front{
+    background-color: #b3b6bdb9;
+    background-blend-mode: overlay;
+
+    background-image: url(img/mg.webp);
+    background-size: cover;
+
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+.movingCard__back{
+    background-color: #b3b6bdb9;
+    background-blend-mode: overlay;
+
+    background-image: url(img/pg.jpg);
+    background-size: cover;
+    transform: rotateY(180deg);
+}
+
+.movingCard__back p {
+    transform: translateZ(6rem);
+    color: aliceblue;
+}
+
+
+.movingCard__front::before, .movingCard__back::before {
+  content: '';
+  position: absolute;
+  inset: 1em;
+  border: 3px double beige;
+  border-radius: 5px;
+  box-shadow: 0 0 5px black;
+  transform: translateZ(2rem);
+}
+
+
+
+/* CARD CON EFECTO MOUSEMOVE */
+section:has(.gundamPoster){
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.gundamPoster{
+    border-radius: 5px;
+    height:700px;
+    width: 400px;
+    box-shadow: 0 0 15px black;
+    transition: transform 0.1s;
+    background: url(img/gundam\ seed.jpg) no-repeat center;
+    background-size:cover;
+}
+
+
+
+
+
+
+
+
+
+
+.gundamPoster2{
+    position: relative;
+    height:700px;
+    width: 400px;
+    box-shadow: 0 0 15px black;
+    transition:  0.3s;
+
+}
+.gundamPoster2 img:nth-child(1){
+    height:700px;
+    width: 400px;
+    box-shadow: 0 0 15px black;
+    border-radius: 5px;
+    object-fit: cover;
+    width: 100%;
+}
+.gundamPoster2 :nth-child(2){
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateY(25%);
+    transition: 0.3s ease;
+    opacity: 0;
+}
+
+.gundamPoster2:hover{
+    transform: translateY(-5%);
+
+
+}
+
+.gundamPoster2:before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom, transparent, black);
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.gundamPoster2:hover::before{
+    opacity: 1;
+}
+.gundamPoster2:hover img:nth-child(2){
+    opacity: 1;
+    transform: translateY(10%);
+}
