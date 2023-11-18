@@ -5,21 +5,48 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <script defer src="script.js" ></script>
-        <title>Slider JS</title>
+        <title>Frontend Practice</title>
     </head>
     <body>
+
+        <nav>
+            <ul>
+                <li><a href="#cardSection" class="navAnchors">Cards</a></li>
+                <li><a href="#flexCards" class="navAnchors">Anchors / Buttons</a></li>
+                <li><a href="#flexCards" class="navAnchors">Flex Cards</a></li>
+                <li><a href="#imgSlider" class="navAnchors">Slider</a></li>
+            </ul>
+        </nav>
+
         
-        <section>
+        <section id="cardSection">
             <div class="gundamPoster"></div>
+
+            <div class="movingCard">
+                <div class="movingCardContent">
+                  
+                  <div class="movingCardFront">
+                    <h3 class="movingCardTitle">Gunpla</h3>
+                    <p class="movingCardSubtitle">Gundam in the palm of your hand</p>
+                  </div> 
+                  
+                  <div class="movingCardBack">
+                    <p class="movingCardBody">Get involved in this awesome hobby for all ages and skill levels</p>
+                  </div>
+                  
+                </div>
+            </div>
 
             <div class="gundamPoster2">
                 <img src="img/gundam seed.jpg" >
                 <img src="img/seed.png" >
             </div>
-        </section>
         
-    <section class="cardMorph">
-        <div style="display: flex; gap: 20px;">
+        </section>
+
+        
+    <section id="flexCards" class="cardMorph">
+        <div class="anchors" >
             <a href="" class="hoverLink">Gunpla</a>
             <a href="" class="hoverLink secondLink">Gunpla</a>
             <a href="" class="hoverLink thirdLink">Gunpla</a>
@@ -75,7 +102,7 @@
 
     </section>
 
-    <section>
+    <section id="imgSlider">
         <div class="imageSlider">
 
             <div class="arrowLeft">&#8592;</div>
@@ -93,20 +120,7 @@
 
 
     <section class="movingCardContainer">
-        <div class="movingCard">
-            <div class="movingCard__content">
-              
-              <div class="movingCard__front">
-                <h3 class="movingCard__title">Gunpla</h3>
-                <p class="movingCard__subtitle">Gundam in the palm of your hand</p>
-              </div> 
-              
-              <div class="movingCard__back">
-                <p class="movingCard__body">Get involved in this awesome hobby for all ages and skill levels</p>
-              </div>
-              
-            </div>
-          </div>
+
     </section>
 
 

@@ -1,7 +1,14 @@
-body{
+/* PAGE STRUCTURE */
+*, *::after,*::before{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    padding: 0;
     font-family: Helvetica, sans-serif;
     background-color: rgb(14, 22, 49);
     /* height: 100%; */
@@ -10,14 +17,37 @@ body{
     align-content: center;
     justify-content: center;
 }
-
 section{
     height: 100vh;
+}
+
+/*  First Section with NAV  */
+nav{
+    background-color: #02070e;
+    color: beige;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+nav ul {
+    display: flex;
+    gap: 50px;
+    list-style: none;
+    font-size: 1.5rem;
+}
+a{
+    text-decoration: none;
+    color: inherit;
 }
 
 .imageSlider{
     /* margin: auto; */
     /* width: 50%; */
+    margin-block: 150px ;
     min-height: 700px;
     position: relative;
     background-color: rgb(3, 12, 39);
@@ -89,8 +119,6 @@ section{
 }
 
 
-
-
 /*  CARD MORPH SLIDER */
 
 .hoverLink{
@@ -107,7 +135,7 @@ section{
     content: "";
     position: absolute;
     inset: 0;
-    background-color: rgb(223, 28, 28);
+    background-color: #f0380d;
     border-radius: 5px;
     z-index: -1;
     transition: 0.2s ;
@@ -129,9 +157,34 @@ section{
     transform-origin: bottom;
 }
 
+.navAnchors{
+    width: 100%;
+    position: relative;
 
+}
 
+.navAnchors:after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    top: 100%;
+    height: 10px;
+    background-color: #f0380d;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.2s  cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    z-index: -1;
+}
 
+.navAnchors:hover:after{
+    transform: scaleX(1);
+    transform: scaleY(0.5);
+}
+
+.anchors{
+    display: flex;
+    gap: 20px;
+}
 .cardMorph{
     display: flex;
     justify-content:space-around;
@@ -236,7 +289,7 @@ input {
     height: 70vh;
    
 }
-.movingCard__content{
+.movingCardContent{
     position: relative;
     transform-style: preserve-3d;
     transition: 1s;
@@ -247,12 +300,12 @@ input {
     font-weight: 600;
     font-size: 1.5rem;
 }
-.movingCard:hover .movingCard__content{
+.movingCard:hover .movingCardContent{
     transform: rotateY(180deg)
 }
 
 
-.movingCard__front, .movingCard__back{
+.movingCardFront, .movingCardBack{
     position: absolute;
     inset: 0;
     padding-inline: 10%;
@@ -266,17 +319,17 @@ input {
 
 }
 
-.movingCard__front h3{
+.movingCardFront h3{
     transform: translateZ(9rem);
     font-size: 3rem;
     order: 1;
 }
-.movingCard__front p{
+.movingCardFront p{
     transform: translateZ(6rem);
     order: 2;
 }
 
-.movingCard__front{
+.movingCardFront{
     background-color: #b3b6bdb9;
     background-blend-mode: overlay;
 
@@ -288,7 +341,7 @@ input {
     justify-content: center;
 }
 
-.movingCard__back{
+.movingCardBack{
     background-color: #b3b6bdb9;
     background-blend-mode: overlay;
 
@@ -297,13 +350,13 @@ input {
     transform: rotateY(180deg);
 }
 
-.movingCard__back p {
+.movingCardBack p {
     transform: translateZ(6rem);
     color: aliceblue;
 }
 
 
-.movingCard__front::before, .movingCard__back::before {
+.movingCardFront::before, .movingCardBack::before {
   content: '';
   position: absolute;
   inset: 1em;
@@ -324,8 +377,8 @@ section:has(.gundamPoster){
 }
 .gundamPoster{
     border-radius: 5px;
-    height:700px;
-    width: 400px;
+    width: 20vw;
+    height: 70vh;
     box-shadow: 0 0 15px black;
     transition: transform 0.1s;
     background: url(img/gundam\ seed.jpg) no-repeat center;
@@ -343,15 +396,15 @@ section:has(.gundamPoster){
 
 .gundamPoster2{
     position: relative;
-    height:700px;
-    width: 400px;
+    width: 20vw;
+    height: 70vh;
     box-shadow: 0 0 15px black;
     transition:  0.3s;
 
 }
 .gundamPoster2 img:nth-child(1){
-    height:700px;
-    width: 400px;
+    width: 20vw;
+    height: 70vh;
     box-shadow: 0 0 15px black;
     border-radius: 5px;
     object-fit: cover;
