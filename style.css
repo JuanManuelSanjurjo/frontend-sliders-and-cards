@@ -222,7 +222,6 @@ a{
     justify-content: center;
     transition: 0.3s;
     transition-delay: 0.3s;
-    overflow-y: hidden;
     overflow-x: hidden;
 } 
 
@@ -445,4 +444,15 @@ section:has(.gundamPoster){
 .gundamPoster2:hover img:nth-child(2){
     opacity: 1;
     transform: translateY(10%);
+
+}
+
+
+
+
+
+@media (prefers-reduced-motion: reduce) {
+    body {
+        scroll-behavior: auto;
+    }
 }
