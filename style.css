@@ -222,7 +222,7 @@ a{
     justify-content: center;
     transition: 0.3s;
     transition-delay: 0.3s;
-    overflow-x: hidden;
+    overflow: hidden;
 } 
 
 .card div * {
